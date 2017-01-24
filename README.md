@@ -42,11 +42,11 @@ The images have dimensions of 320x160 images (in color). Getting some pieces of 
 
 Curve examples
 
-![Curve1](imgs/curve1.jpg?raw=true)] ![Curve2](imgs/curve2.jpg?raw=true)]
+![Curve1](imgs/curve1.jpg?raw=true) ![Curve2](imgs/curve2.jpg?raw=true)
 
 Recovery examples
 
-![Recovery1](imgs/recovery1.jpg?raw=true)] ![Recover2](imgs/recovery2.jpg?raw=true)]
+![Recovery1](imgs/recovery1.jpg?raw=true) ![Recover2](imgs/recovery2.jpg?raw=true)
 
 ## Preprocessing
 
