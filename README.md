@@ -42,11 +42,11 @@ The images have dimensions of 320x160 images (in color). Getting some pieces of 
 
 Curve examples
 
-[!Curve1](/imgs/curve1.png?raw=true)] [!Curve2](/imgs/curve2.png?raw=true)]
+![Curve1](/imgs/curve1.png?raw=true)] ![Curve2](/imgs/curve2.png?raw=true)]
 
 Recovery examples
 
-[!Recovery1](/imgs/recovery1.png?raw=true)] [!Recover2](/imgs/recovery2.png?raw=true)]
+![Recovery1](/imgs/recovery1.png?raw=true)] ![Recover2](/imgs/recovery2.png?raw=true)]
 
 ## Preprocessing
 
@@ -79,7 +79,7 @@ in a good way so it was decided to based the model in the mentioned NVIDIA one.
 - There is also a dropout (40% rate) before the FCCNs layers to help to decrease the overfitting
 - It was also set a Regularization Phase at the beginning of the model
 
-[!NVIDIA model](/imgs/summary.png?raw=true)]
+![NVIDIA model](/imgs/summary.png?raw=true)]
 
 ## Training
 
@@ -109,7 +109,7 @@ Finally, and in order to reach the goal of this project, the model was trained i
 With these three phases the model is perfectly able to drive the car several times without touching
 the ledges or roll over any surface.
 
-[!Recovery Training](/imgs/from_training.png?raw=true)]
+![Recovery Training](/imgs/from_training.png?raw=true)]
 
 ## Bonus Clip
 
