@@ -42,11 +42,11 @@ The images have dimensions of 320x160 images (in color). Getting some pieces of 
 
 Curve examples
 
-![Curve1](imgs/curve1.png?raw=true)] ![Curve2](imgs/curve2.png?raw=true)]
+![Curve1](imgs/curve1.jpg?raw=true)] ![Curve2](imgs/curve2.jpg?raw=true)]
 
 Recovery examples
 
-![Recovery1](imgs/recovery1.png?raw=true)] ![Recover2](imgs/recovery2.png?raw=true)]
+![Recovery1](imgs/recovery1.jpg?raw=true)] ![Recover2](imgs/recovery2.jpg?raw=true)]
 
 ## Preprocessing
 
@@ -79,7 +79,7 @@ in a good way so it was decided to based the model in the mentioned NVIDIA one.
 - There is also a dropout (40% rate) before the FCCNs layers to help to decrease the overfitting
 - It was also set a Regularization Phase at the beginning of the model
 
-![Summary](imgs/summary.png?raw=true)
+![Summary](imgs/summary.jpg?raw=true)
 
 ## Training
 
