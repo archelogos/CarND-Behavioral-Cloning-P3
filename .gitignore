@@ -1,7 +1,6 @@
 .DS_Store
 *.p
 *.pickle
-*.jpg
 model-*.h5
 /data
 /data-*
