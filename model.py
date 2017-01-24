@@ -18,10 +18,8 @@ import data_generator as DataGenerator
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 
-flags.DEFINE_integer('epochs', 10, "The number of epochs.")
+flags.DEFINE_integer('epochs', 5, "The number of epochs.")
 flags.DEFINE_integer('batch_size', 100, "The batch size.")
-
-fine_tune = False
 
 # Data
 # Import data
@@ -57,42 +55,8 @@ X_train, X_val, y_train, y_val = train_test_split(images, angles, test_size=0.1,
 print('Training set', X_train.shape, y_train.shape)
 print('Validation set', X_val.shape, y_val.shape)
 
-## Build model
-
-# Model 1
-# model = Sequential()
-# model.add(Convolution2D(32, 3, 3, input_shape=(32, 16, 1), border_mode='same', activation='relu'))
-# model.add(Convolution2D(64, 3, 3, border_mode='same', activation='relu'))
-# model.add(Dropout(0.5))
-# model.add(Convolution2D(128, 3, 3, border_mode='same', activation='relu'))
-# model.add(Convolution2D(256, 3, 3, border_mode='same', activation='relu'))
-# model.add(Dropout(0.5))
-# model.add(Flatten())
-# model.add(Dense(1024, activation='relu'))
-# model.add(Dense(512, activation='relu'))
-# model.add(Dense(128, activation='relu'))
-# model.add(Dense(1, name='output', activation='tanh'))
-
-# Model 2
-# model = Sequential()
-# model.add(Lambda(lambda x: x/127.5 - 1.,
-#         input_shape=(80, 40, 3),
-#         output_shape=(80, 40, 3)))
-# model.add(Convolution2D(16, 8, 8, subsample=(4, 4), border_mode="same"))
-# model.add(ELU())
-# model.add(Convolution2D(32, 5, 5, subsample=(2, 2), border_mode="same"))
-# model.add(ELU())
-# model.add(Convolution2D(64, 5, 5, subsample=(2, 2), border_mode="same"))
-# model.add(Flatten())
-# model.add(Dropout(.2))
-# model.add(ELU())
-# model.add(Dense(512))
-# model.add(Dropout(.5))
-# model.add(ELU())
-# model.add(Dense(1))
 
 def get_model():
-    # Model 3
     model = Sequential()
     model.add(Lambda(lambda x: x/128 -1.,
                        input_shape=(200, 66, 3),
@@ -122,25 +86,19 @@ def get_model():
 
     return model
 
-if fine_tune:
-    learning_rate = 0.001
-    print('From Trained Model')
+try:
     with open("model.json", 'r') as jfile:
         model = model_from_json(jfile.read())
 
     model.compile("adam", "mse")
     weights_file = "model.h5"
     model.load_weights(weights_file)
-else:
-    learning_rate = 0.01
+    print('From Trained Model')
+except:
     model = get_model()
 
-
-# Optimizer
-optimizer = Adam(lr=learning_rate)
-
 # Compile model
-model.compile(optimizer=optimizer, loss='mse')
+model.compile(optimizer='adam', loss='mse')
 
 model.fit_generator(
     DataGenerator.get_batch(X_train, y_train, FLAGS.batch_size),
