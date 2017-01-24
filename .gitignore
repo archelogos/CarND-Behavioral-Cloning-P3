@@ -2,10 +2,6 @@
 *.p
 *.pickle
 *.jpg
-/old_data
 /data
+/data-*
 /__pycache__
-
-model_old.h5
-
-model_old.json

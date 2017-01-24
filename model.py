@@ -18,7 +18,7 @@ import data_generator as DataGenerator
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 
-flags.DEFINE_integer('epochs', 5, "The number of epochs.")
+flags.DEFINE_integer('epochs', 10, "The number of epochs.")
 flags.DEFINE_integer('batch_size', 100, "The batch size.")
 
 # Data
@@ -97,8 +97,10 @@ try:
 except:
     model = get_model()
 
+optimizer = Adam(lr=0.00001)
+
 # Compile model
-model.compile(optimizer='adam', loss='mse')
+model.compile(optimizer=optimizer, loss='mse')
 
 model.fit_generator(
     DataGenerator.get_batch(X_train, y_train, FLAGS.batch_size),
