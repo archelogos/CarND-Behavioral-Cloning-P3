@@ -56,7 +56,6 @@ def get_batch(images, angles, batch_size):
         selected = np.random.choice(samples, batch_size)
         images_batch, angles_batch = read_images(images[selected]), angles[selected].astype(float)
 
-        #images_batch, angles_batch = augment(preprocess(images_batch), angles_batch)
-        images_batch, angles_batch = preprocess(images_batch), angles_batch
+        images_batch, angles_batch = augment(preprocess(images_batch), angles_batch)
 
         yield images_batch, angles_batch

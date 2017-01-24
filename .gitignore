@@ -2,6 +2,7 @@
 *.p
 *.pickle
 *.jpg
+model-*.h5
 /data
 /data-*
 /__pycache__
